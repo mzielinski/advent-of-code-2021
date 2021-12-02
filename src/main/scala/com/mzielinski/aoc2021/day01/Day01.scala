@@ -42,7 +42,7 @@ object Day01 extends App {
     }
   }
 
-  def main(filename: String, part: String): Int = {
+  def run(filename: String, part: String): Int = {
     val ints = readFile(filename)
 
     countIncreases(ints, part match {
