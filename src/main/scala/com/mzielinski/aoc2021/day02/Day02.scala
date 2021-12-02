@@ -24,30 +24,24 @@ object Day02 extends App {
     }.toList
   }
 
-  def day02part02 = {
-    (direction: Direction, position: Position) => {
-      direction match {
-        case Forward(units) => Position(position.horizontal + units, position.depth + position.aim * units, position.aim)
-        case Up(units) => Position(position.horizontal, position.depth, position.aim - units)
-        case Down(units) => Position(position.horizontal, position.depth, position.aim + units)
-      }
+  def day02part02 = (direction: Direction, position: Position) =>
+    direction match {
+      case Forward(units) => Position(position.horizontal + units, position.depth + position.aim * units, position.aim)
+      case Up(units) => Position(position.horizontal, position.depth, position.aim - units)
+      case Down(units) => Position(position.horizontal, position.depth, position.aim + units)
     }
-  }
 
-  def day02part01 = {
-    (direction: Direction, position: Position) => {
-      direction match {
-        case Forward(units) => Position(position.horizontal + units, position.depth + position.aim * units, 0)
-        case Up(units) => Position(position.horizontal, position.depth - units, 0)
-        case Down(units) => Position(position.horizontal, position.depth + units, 0)
-      }
+  def day02part01 = (direction: Direction, position: Position) =>
+    direction match {
+      case Forward(units) => Position(position.horizontal + units, position.depth + position.aim * units, 0)
+      case Up(units) => Position(position.horizontal, position.depth - units, 0)
+      case Down(units) => Position(position.horizontal, position.depth + units, 0)
     }
-  }
 
-  def calculateSubmarinePosition(directions: List[Direction], forwardCalculator: (Direction, Position) => Position): Int = {
-    val position = directions.foldLeft(Position(0, 0, 0))((position: Position, direction: Direction) => {
-      forwardCalculator.apply(direction, position)
-    })
+  def calculateSubmarinePosition(directions: List[Direction], f: (Direction, Position) => Position): Int = {
+    val position = directions.foldLeft(Position(0, 0, 0)) {
+      (position: Position, direction: Direction) => f(direction, position)
+    }
     position.horizontal * position.depth
   }
 
