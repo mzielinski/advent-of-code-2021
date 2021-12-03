@@ -33,13 +33,9 @@ object Day03 extends App {
       .getOrElse(0)
   }
 
-  private def calculateRatings(part: Commons.Part, rows: List[List[Bit]]) = {
-    part match {
-      case Part01() =>
-        (dayPart01(rows, moreOnes), dayPart01(rows, lessZeros))
-      case Part02() =>
-        (dayPart02(rows, "", moreOnes), dayPart02(rows, "", lessZeros))
-    }
+  private def calculateRatings(part: Commons.Part, rows: List[List[Bit]]) = part match {
+    case Part01() => (dayPart01(rows, moreOnes), dayPart01(rows, lessZeros))
+    case Part02() => (dayPart02(rows, "", moreOnes), dayPart02(rows, "", lessZeros))
   }
 
   private def dayPart01(input: List[List[Bit]], function: (Int, Int) => Bit): Int = {
