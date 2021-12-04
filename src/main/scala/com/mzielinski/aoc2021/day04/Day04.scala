@@ -19,19 +19,6 @@ object Day04 extends App {
     win.getOrElse(-1)
   }
 
-  @tailrec
-  private def bingo(previousWinners: List[Winner],
-                    numbers: List[Integer],
-                    boards: List[Board],
-                    lastNumber: Integer,
-                    winnerSelector: List[Winner] => Option[Winner]): Option[Winner] = {
-    val winners: List[Winner] = createWinnerList(previousWinners, boards, lastNumber)
-    val winner: Option[Winner] = winnerSelector(winners)
-
-    if (winner.isDefined) winner
-    else bingo(winners, numbers.tail, boards.map { board => board.addMatched(numbers.head) }, numbers.head, winnerSelector)
-  }
-
   private def findBingoWinner(part: Commons.Part, numbers: List[Integer], boards: List[Board]) = {
     part match {
       case Part01() => bingo(List(), numbers, boards, 0, winners => winners.headOption)
@@ -42,8 +29,16 @@ object Day04 extends App {
     }
   }
 
-  private def createWinnerList(winners: List[Winner], boards: List[Board], lastNumber: Integer) = {
-    winners ++ findNewWinners(winners, boards, lastNumber)
+  @tailrec
+  private def bingo(previousWinners: List[Winner],
+                    numbers: List[Integer],
+                    boards: List[Board],
+                    lastNumber: Integer,
+                    winnerSelector: List[Winner] => Option[Winner]): Option[Winner] = {
+    val winners: List[Winner] = previousWinners ++ findNewWinners(previousWinners, boards, lastNumber)
+    val winner: Option[Winner] = winnerSelector(winners)
+    if (winner.isDefined) winner
+    else bingo(winners, numbers.tail, boards.map { board => board.addMatched(numbers.head) }, numbers.head, winnerSelector)
   }
 
   private def findNewWinners(winners: List[Winner], boards: List[Board], lastNumber: Integer) = {
