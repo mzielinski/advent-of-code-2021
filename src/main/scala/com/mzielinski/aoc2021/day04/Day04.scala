@@ -10,18 +10,19 @@ object Day04 extends App {
 
   case class Row(elements: List[Integer])
 
-  def run(path1: String, path2: String, part: Commons.Part) = {
-    val numbers: Try[List[Integer]] = InputReader.readNumbers(path1)
-    val boards: List[Board] = InputReader.readBoards(path2).get
-
-    val winner = part match {
-      case Part01() => bingo(List(), numbers.get, boards, 0, winners => winners.headOption)
-      case Part02() => bingo(List(), numbers.get, boards, 0, winners =>
-        if (winners.length == boards.length) winners.lastOption
-        else None
-      )
-    }
-    winner.map(_.calculateResult()).getOrElse(-1)
+  def run(path1: String, path2: String, part: Commons.Part): Int = {
+    val win: Try[Int] = for {
+      numbers <- InputReader.readNumbers(path1)
+      boards <- InputReader.readBoards(path2)
+      winner = part match {
+        case Part01() => bingo(List(), numbers, boards, 0, winners => winners.headOption)
+        case Part02() => bingo(List(), numbers, boards, 0, winners =>
+          if (winners.length == boards.length) winners.lastOption
+          else None
+        )
+      }
+    } yield winner.map(_.calculateResult()).getOrElse(-1)
+    win.getOrElse(-1)
   }
 
   @tailrec
