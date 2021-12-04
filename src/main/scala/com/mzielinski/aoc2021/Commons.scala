@@ -11,4 +11,15 @@ object Commons {
   def binaryToInt(binaryString: String): Int = {
     Integer.parseInt(binaryString, 2)
   }
+
+  def split[T](iter: Iterator[T])(breakOn: T => Boolean): Iterator[Iterator[T]] =
+    new Iterator[Iterator[T]] {
+      def hasNext: Boolean = iter.hasNext
+
+      def next: Iterator[T] = {
+        val cur = iter.takeWhile(!breakOn(_))
+        iter.dropWhile(breakOn)
+        cur
+      }
+    }.withFilter(_.nonEmpty)
 }
