@@ -25,9 +25,6 @@ object Day04 extends App {
                     boards: List[Board],
                     lastNumber: Integer,
                     winnerSelector: List[Winner] => Option[Winner]): Option[Winner] = {
-
-    if (numbers.isEmpty) return None
-
     val winners: List[Winner] = createWinnerList(previousWinners, boards, lastNumber)
     val winner: Option[Winner] = winnerSelector(winners)
 
