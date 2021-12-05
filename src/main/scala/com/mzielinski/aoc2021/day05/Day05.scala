@@ -1,4 +1,4 @@
-package com.mzielinski.aoc2021.dya05
+package com.mzielinski.aoc2021.day05
 
 import com.mzielinski.aoc2021.Commons.{Part, Part01, Part02}
 

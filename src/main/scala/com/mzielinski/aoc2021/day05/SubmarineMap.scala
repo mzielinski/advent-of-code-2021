@@ -1,4 +1,4 @@
-package com.mzielinski.aoc2021.dya05
+package com.mzielinski.aoc2021.day05
 
 case class SubmarineMap(lines: List[Line]) {
 

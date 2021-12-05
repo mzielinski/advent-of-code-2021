@@ -1,7 +1,7 @@
 package com.mzielinski.aoc2021.day05
 
 import com.mzielinski.aoc2021.Commons.{Part, Part01, Part02}
-import com.mzielinski.aoc2021.dya05.Day05
+import com.mzielinski.aoc2021.day05.Day05
 import org.scalatest.prop.TableDrivenPropertyChecks._
 
 class Day05Test extends org.scalatest.funsuite.AnyFunSuite {
