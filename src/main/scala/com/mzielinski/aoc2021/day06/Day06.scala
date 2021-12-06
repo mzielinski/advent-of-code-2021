@@ -7,7 +7,7 @@ object Day06 extends App {
 
   case class School(lanternfishes: Map[Long, Long]) {
 
-    private def incr(increment: Long): Option[Long] => Some[Long] =
+    private def increment(increment: Long): Option[Long] => Some[Long] =
       (counter: Option[Long]) => Some(counter.getOrElse(0L) + increment)
 
     def dayRecalculation(): School = {
@@ -18,8 +18,8 @@ object Day06 extends App {
       School(lanternfishes.get(0) match {
         case None => recalculatedSchool
         case Some(size) => recalculatedSchool
-          .updatedWith(6)(incr(size))
-          .updatedWith(8)(incr(size))
+          .updatedWith(6)(increment(size))
+          .updatedWith(8)(increment(size))
       })
     }
 
