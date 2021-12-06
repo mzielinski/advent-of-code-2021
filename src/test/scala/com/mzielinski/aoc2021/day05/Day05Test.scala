@@ -1,7 +1,6 @@
 package com.mzielinski.aoc2021.day05
 
 import com.mzielinski.aoc2021.Commons.{Part, Part01, Part02}
-import com.mzielinski.aoc2021.day05.Day05
 import org.scalatest.prop.TableDrivenPropertyChecks._
 
 class Day05Test extends org.scalatest.funsuite.AnyFunSuite {
@@ -17,7 +16,7 @@ class Day05Test extends org.scalatest.funsuite.AnyFunSuite {
   )
 
   forAll(fractions) { (filename: String, part: Part, expectedResult: Int) =>
-    test(s"Day05 - Hydrothermal Venture  - for file $filename and part $part") {
+    test(s"Day05 - Hydrothermal Venture - for file $filename and part $part") {
       // given
       val path = this.getClass.getClassLoader.getResource(filename).getPath
 
