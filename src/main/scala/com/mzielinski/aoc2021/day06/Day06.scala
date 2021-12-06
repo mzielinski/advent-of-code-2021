@@ -16,7 +16,7 @@ object Day06 extends App {
       School(recalculatedSchool ++ updatedItems)
     }
 
-    def count(): Long = lanternfishes.values.sum
+    def countLanternfishes(): Long = lanternfishes.values.sum
   }
 
   @annotation.tailrec
@@ -26,8 +26,11 @@ object Day06 extends App {
   }
 
   def run(path: String, days: Int): Long = {
-    val input: School = School(readFile(path).get)
-    dayIteration(input, days).count()
+    readFile(path)
+      .map(School)
+      .map(school => dayIteration(school, days))
+      .map(_.countLanternfishes())
+      .getOrElse(-1L)
   }
 
   private def readFile(filename: String): Try[Map[Long, Long]] = {
