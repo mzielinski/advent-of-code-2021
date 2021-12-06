@@ -7,13 +7,20 @@ object Day06 extends App {
 
   case class School(lanternfishes: Map[Long, Long]) {
 
+    private def incr(increment: Long): Option[Long] => Some[Long] =
+      (counter: Option[Long]) => Some(counter.getOrElse(0L) + increment)
+
     def dayRecalculation(): School = {
-      val recalculatedSchool = lanternfishes.map { case (day, counter) => day - 1 -> counter }
-      val updatedItems = Map(
-        -1L -> 0L,
-        6L -> (recalculatedSchool(6) + recalculatedSchool(-1)),
-        8L -> recalculatedSchool(-1))
-      School(recalculatedSchool ++ updatedItems)
+      val recalculatedSchool: Map[Long, Long] = lanternfishes.flatMap {
+        case (0, _) => None
+        case (day, counter) => Some((day - 1, counter))
+      }
+      School(lanternfishes.get(0) match {
+        case None => recalculatedSchool
+        case Some(size) => recalculatedSchool
+          .updatedWith(6)(incr(size))
+          .updatedWith(8)(incr(size))
+      })
     }
 
     def countLanternfishes(): Long = lanternfishes.values.sum
