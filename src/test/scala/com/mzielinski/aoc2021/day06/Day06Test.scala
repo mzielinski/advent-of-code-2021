@@ -15,7 +15,7 @@ class Day06Test extends org.scalatest.funsuite.AnyFunSuite {
 
   forAll(fractions) { (filename: String, expectedResult: Long, days: Int) =>
     test(s"Day06 - Lanternfish - for file $filename and days: $days") {
-      Day06.run(this.getClass.getClassLoader.getResource(filename).getPath, days) == expectedResult
+      assert(Day06.run(this.getClass.getClassLoader.getResource(filename).getPath, days) == expectedResult)
     }
   }
 }
