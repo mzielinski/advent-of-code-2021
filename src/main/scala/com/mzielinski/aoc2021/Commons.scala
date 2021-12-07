@@ -4,9 +4,13 @@ object Commons {
 
   sealed trait Part
 
-  case class Part01() extends Part
+  case class Part01() extends Part {
+    override def toString: String = "01"
+  }
 
-  case class Part02() extends Part
+  case class Part02() extends Part {
+    override def toString: String = "02"
+  }
 
   def binaryToInt(binaryString: String): Int = {
     Integer.parseInt(binaryString, 2)

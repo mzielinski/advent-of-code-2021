@@ -15,7 +15,7 @@ class Day01Test extends org.scalatest.funsuite.AnyFunSuite {
   )
 
   forAll(fractions) { (filename: String, part: String, expectedResult: Int) =>
-    test(s"Day01 - count increases for file $filename and part $part") {
+    test(s"Day01 - Sonar Sweep - for file $filename and part $part") {
       // given
       val path = this.getClass.getClassLoader.getResource(filename).getPath
 

@@ -16,7 +16,7 @@ class Day02Test extends org.scalatest.funsuite.AnyFunSuite {
   )
 
   forAll(fractions) { (filename: String, part: Part, expectedResult: Int) =>
-    test(s"Day02 - submarine position for file $filename and part $part") {
+    test(s"Day02 - Dive! - for file $filename and part $part") {
       // given
       val path = this.getClass.getClassLoader.getResource(filename).getPath
 
