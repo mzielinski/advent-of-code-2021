@@ -30,7 +30,7 @@ object Day03 extends App {
       .map(_.transpose)
       .map(calculateRatings(part, _))
       .map(result => result._1 * result._2)
-      .getOrElse(0)
+      .getOrElse(-1)
   }
 
   private def calculateRatings(part: Commons.Part, rows: List[List[Bit]]) = part match {

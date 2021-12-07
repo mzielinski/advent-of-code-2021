@@ -19,7 +19,6 @@ case class Board(rows: List[Row], matchedNumbers: List[Integer], id: UUID) {
   }
 
   private def winnerInColumn = {
-    // convert rows into columns
     rows.map(_.elements).transpose.flatMap(fullyMatched).headOption
   }
 

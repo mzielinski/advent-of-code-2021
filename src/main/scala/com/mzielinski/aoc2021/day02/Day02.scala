@@ -64,6 +64,6 @@ object Day02 extends App {
       }))
       .toOption
       .map(position => position.depth * position.horizontal)
-      .getOrElse(0)
+      .getOrElse(-1)
   }
 }

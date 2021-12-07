@@ -11,18 +11,17 @@ object Day07 extends App {
 
   case class CrabPosition(positions: List[Int], costsStrategy: (Int, Int) => Int) {
 
-    val min: Int = positions.min
-    val max: Int = positions.max
+    val range: Range = positions.min to positions.max
 
     def calculateHorizontalFuelCosts(proposedHorizontalPosition: Int): Int = {
-      positions.foldLeft(0)((acc: Int, value: Int) => {
-        acc + costsStrategy(value, proposedHorizontalPosition)
+      positions.foldLeft(0)((acc: Int, position: Int) => {
+        acc + costsStrategy(position, proposedHorizontalPosition)
       })
     }
   }
 
   def findMinimalFuelCosts(crabPosition: CrabPosition): Int = {
-    (crabPosition.min to crabPosition.max).map(crabPosition.calculateHorizontalFuelCosts).min
+    crabPosition.range.map(crabPosition.calculateHorizontalFuelCosts).min
   }
 
   def run(path: String, part: Commons.Part): Int = {
