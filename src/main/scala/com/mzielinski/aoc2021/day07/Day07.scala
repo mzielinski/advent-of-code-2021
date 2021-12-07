@@ -25,20 +25,18 @@ object Day07 extends App {
     (crabPosition.min to crabPosition.max).map(crabPosition.calculateHorizontalFuelCosts).min
   }
 
-  def part01(x1: Int, x2: Int): Int = abs(x1 - x2)
-
-  def part02(x1: Int, x2: Int): Int = (0 to part01(x1, x2)).sum
-
   def run(path: String, part: Commons.Part): Int = {
     readFile(path)
-      .map(positions => {
-         part match {
-           case Part01() => CrabPosition(positions, part01)
-           case Part02() => CrabPosition(positions, part02)
-         }
-      })
+      .map(positions => CrabPosition(positions, selectCostsStrategy(part)))
       .map(findMinimalFuelCosts)
       .getOrElse(-1)
+  }
+
+  private def selectCostsStrategy(part: Commons.Part) = {
+    part match {
+      case Part01() => (x1: Int, x2: Int) => abs(x1 - x2)
+      case Part02() => (x1: Int, x2: Int) => (0 to abs(x1 - x2)).sum
+    }
   }
 
   private def readFile(filename: String): Try[List[Int]] = {
