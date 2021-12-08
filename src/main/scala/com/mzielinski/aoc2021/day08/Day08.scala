@@ -1,6 +1,7 @@
 package com.mzielinski.aoc2021.day08
 
 import com.mzielinski.aoc2021.Commons.{Part, Part01, Part02}
+import com.mzielinski.aoc2021.day08.Digits.Digit
 
 import scala.annotation.tailrec
 import scala.io.Source
