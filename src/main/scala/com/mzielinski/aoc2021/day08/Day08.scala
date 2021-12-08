@@ -20,9 +20,7 @@ object Day08 extends App {
   }
 
   def run(path: String, part: Part): Int = {
-    readFile(path)
-      .map(sumEntries(_, part))
-      .getOrElse(-1)
+    readFile(path).map(sumEntries(_, part)).getOrElse(-1)
   }
 
   private def sumEntries(entries: List[Entry], part: Part) = {
@@ -35,10 +33,7 @@ object Day08 extends App {
   }
 
   private def part01(number: String): Int = {
-    Digits.findDigit(number)
-      .filter(_.length == 1)
-      .map(_ => 1)
-      .getOrElse(0)
+    Digits.findDigit(number).filter(_.length == 1).map(_ => 1).getOrElse(0)
   }
 
   private def part02(number: String, knownDigits: Map[Int, Digit]): Either[Exception, String] = {
