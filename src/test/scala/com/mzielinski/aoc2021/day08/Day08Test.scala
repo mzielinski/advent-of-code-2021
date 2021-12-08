@@ -3,7 +3,7 @@ package com.mzielinski.aoc2021.day08
 import com.mzielinski.aoc2021.Commons.{Part, Part01, Part02}
 import org.scalatest.prop.TableDrivenPropertyChecks._
 
-class Day09Test extends org.scalatest.funsuite.AnyFunSuite {
+class Day08Test extends org.scalatest.funsuite.AnyFunSuite {
 
   private val fractions = Table(
     ("filename", "part", "result"),

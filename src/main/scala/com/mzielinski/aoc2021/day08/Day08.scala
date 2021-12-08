@@ -55,13 +55,12 @@ object Day08 extends App {
   @tailrec
   def tryToFindUniqueNumber(possibleDigits: List[Digit], knownDigits: Map[Int, Digit]): Option[Digit] = {
     val digit = possibleDigits.head
-
     val isUniqueDigit = digit.isUnique(knownDigits)
-    val possibleDigits1 = if (!isUniqueDigit) possibleDigits.tail else possibleDigits
-    val knownDigits1 = if (isUniqueDigit) knownDigits ++ Map(digit.number() -> digit) else knownDigits
+    val possibleDigitsForNextIteration = if (!isUniqueDigit) possibleDigits.tail else possibleDigits
+    val extendedKnownDigits = if (isUniqueDigit) knownDigits ++ Map(digit.number() -> digit) else knownDigits
 
-    if (possibleDigits1.isEmpty || knownDigits.contains(digit.number())) Some(digit)
-    else tryToFindUniqueNumber(possibleDigits1, knownDigits1)
+    if (possibleDigitsForNextIteration.isEmpty || extendedKnownDigits.contains(digit.number())) Some(digit)
+    else tryToFindUniqueNumber(possibleDigitsForNextIteration, extendedKnownDigits)
   }
 
   private def readFile(path: String): Try[List[Entry]] = {
