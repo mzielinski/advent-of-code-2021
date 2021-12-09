@@ -8,11 +8,6 @@ import scala.util.{Try, Using}
 
 object Day09 extends App {
 
-  case class Point(y: Int, x: Int, value: Int) {
-
-    def validBasin(v: Int): Boolean = v >= value && v < 9
-  }
-
   def run(path: String, part: Commons.Part): Int = {
     readFile(path)
       .map(HeightMap)
@@ -31,7 +26,7 @@ object Day09 extends App {
 
   private def part2(h: HeightMap): Int = {
     h.findLowestPoints()
-      .map(point => h.findBasin(point, Set(point)))
+      .map(point => h.findBasinPoints(point, Set(point)))
       .map(_.size)
       .sorted
       .reverse
