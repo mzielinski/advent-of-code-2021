@@ -15,7 +15,7 @@ First code written by me in Scala
 * [Day 06 Main](https://github.com/mzielinski/advent-of-code-2021/blob/main/src/main/scala/com/mzielinski/aoc2021/day06/Day06.scala)
 * [Day 07 Main](https://github.com/mzielinski/advent-of-code-2021/blob/main/src/main/scala/com/mzielinski/aoc2021/day07/Day07.scala)
 * [Day 08 Main](https://github.com/mzielinski/advent-of-code-2021/blob/main/src/main/scala/com/mzielinski/aoc2021/day08/Day08.scala)
-* [Day 09 Main](https://github.com/mzielinski/advent-of-code-2021/blob/main/src/main/scala/com/mzielinski/aoc2021/day09/Day09scala)
+* [Day 09 Main](https://github.com/mzielinski/advent-of-code-2021/blob/main/src/main/scala/com/mzielinski/aoc2021/day09/Day09.scala)
 
 ## Tests:
 * [ScalaTest → Day 01](https://github.com/mzielinski/advent-of-code-2021/blob/main/src/test/scala/com/mzielinski/aoc2021/day01/Day01Test.scala)
