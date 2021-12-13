@@ -17,6 +17,9 @@ First code written by me in Scala
 * [Day 08 Main](https://github.com/mzielinski/advent-of-code-2021/blob/main/src/main/scala/com/mzielinski/aoc2021/day08/Day08.scala)
 * [Day 09 Main](https://github.com/mzielinski/advent-of-code-2021/blob/main/src/main/scala/com/mzielinski/aoc2021/day09/Day09.scala)
 * [Day 10 Main](https://github.com/mzielinski/advent-of-code-2021/blob/main/src/main/scala/com/mzielinski/aoc2021/day10/Day10.scala)
+* Missing
+* [Day 12 Main](https://github.com/mzielinski/advent-of-code-2021/blob/main/src/main/scala/com/mzielinski/aoc2021/day12/Day12.scala)
+* [Day 13 Main](https://github.com/mzielinski/advent-of-code-2021/blob/main/src/main/scala/com/mzielinski/aoc2021/day13/Day13.scala)
 
 ## Tests:
 * [ScalaTest → Day 01](https://github.com/mzielinski/advent-of-code-2021/blob/main/src/test/scala/com/mzielinski/aoc2021/day01/Day01Test.scala)
@@ -29,3 +32,6 @@ First code written by me in Scala
 * [ScalaTest → Day 08](https://github.com/mzielinski/advent-of-code-2021/blob/main/src/test/scala/com/mzielinski/aoc2021/day08/Day08Test.scala)
 * [ScalaTest → Day 09](https://github.com/mzielinski/advent-of-code-2021/blob/main/src/test/scala/com/mzielinski/aoc2021/day09/Day09Test.scala)
 * [ScalaTest → Day 10](https://github.com/mzielinski/advent-of-code-2021/blob/main/src/test/scala/com/mzielinski/aoc2021/day10/Day10Test.scala)
+* Missing
+* [ScalaTest → Day 12](https://github.com/mzielinski/advent-of-code-2021/blob/main/src/test/scala/com/mzielinski/aoc2021/day12/Day12Test.scala)
+* [ScalaTest → Day 13](https://github.com/mzielinski/advent-of-code-2021/blob/main/src/test/scala/com/mzielinski/aoc2021/day13/Day13Test.scala)
