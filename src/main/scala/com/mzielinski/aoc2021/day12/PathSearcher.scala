@@ -12,9 +12,9 @@ case class PathSearcher(paths: List[List[String]]) {
         .flatMap(findPaths(maxStops, _, current :: acc))
     }
 
-  private def validPath(maxStops: Int, current: String, acc: List[String], destination: String): Boolean = {
-    !destination.forall(_.isLower) ||
-      !acc.contains(destination) ||
+  private def validPath(maxStops: Int, current: String, acc: List[String], target: String): Boolean = {
+    !target.forall(_.isLower) ||
+      !acc.contains(target) ||
       !seenCount(current :: acc).exists(_ >= maxStops)
   }
 
